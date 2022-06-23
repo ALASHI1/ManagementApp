@@ -21,10 +21,20 @@ function Search(props) {
                 id="outlined-basic"
                 variant="outlined"
                 fullWidth
-                label={<SearchIcon />}
+                label={<SearchIcon 
+                style={{width: '11px', height: '11px', marginBottom: '112px'}}
+                />}
                 className='search'
-                style={{width: '252px', marginLeft: '38px'}}
+                style={{width: '180px', marginLeft: '28px'}}
                 onChange={handleSearch}
+                inputProps={{
+                  style: {
+                    fontSize: '13px',
+                    height: '10px',
+                  }
+                }}
+              
+
               />
   )
 }

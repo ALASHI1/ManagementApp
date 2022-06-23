@@ -31,7 +31,9 @@ function NoteList(props) {
         <div className='notehov' key={index}>
         <Divider variant="fullWidth" component="li" />
         <ListItem onClick={() => {setNoteID(note)}}>
-          <ListItemText primary={getTitle(note)} secondary={getDate(note)}/>
+          <ListItemText primary={getTitle(note)} secondary={getDate(note)}
+          classes={{primary: 'note-title', secondary: 'note-date'}}
+          />
           {/* <Content noteid={note.id}/> */}
         </ListItem>
         </div>)

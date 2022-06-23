@@ -22,14 +22,14 @@ export default function ButtonAppBar(props) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar 
-      style={{backgroundColor:"white", color:"black"}}
+      style={{backgroundColor:"white", color:"black",height: 50}}
       position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          {props?.user.toUpperCase()} <Button style={{fontSize:22}} href='/' color="inherit">{props.title.toUpperCase()}</Button>
+          <Typography  variant="h6" component="div" sx={{ flexGrow: 1, marginBottom: "auto" }}>
+          {props?.user.toUpperCase()} <Button style={{fontSize:22,marginBottom: "auto"}} href='/' color="inherit">{props.title.toUpperCase()}</Button>
           </Typography>
-          {props.login ?( <Button onClick={handleLogout} color="inherit">Logout</Button>): (
-            <Button  href='/login' color="inherit">Login</Button>)
+          {props.login ?( <Button onClick={handleLogout} style={{marginBottom: 12}} color="inherit">Logout</Button>): (
+            <Button style={{marginBottom: 12}} href='/login' color="inherit">Login</Button>)
           }
           
         </Toolbar>

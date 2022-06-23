@@ -27,6 +27,8 @@ function DeleteCom(props) {
   return (
     <DeleteForeverOutlinedIcon
     onClick={deleteNote}
+    style={{cursor:"pointer"}}
+    className='delete'
     />
   )
 }

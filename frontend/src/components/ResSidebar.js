@@ -10,7 +10,7 @@ import Search from './Search';
 import MAddbutton from './MAddbutton';
 import axios from 'axios'
 
-const drawerWidth = 340;
+const drawerWidth = 252;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -38,8 +38,10 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <Search setNotes={setNotes}/>
-      <NoteList notes={notes} setNotes={setNotes} setNoteid={props.setNoteid}/>
+      <div>
+        <Search setNotes={setNotes}/>
+        <NoteList notes={notes} setNotes={setNotes} setNoteid={props.setNoteid}/>
+      </div>
     </div>
   );
 
@@ -84,25 +86,30 @@ function ResponsiveDrawer(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, position: 'unset' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, position: 'unset', maxHeight: 490 },
             '& .MuiDrawer-root': { position: 'unset'},
           }}
         >
           {drawer}
+          <div>
+        <MAddbutton notes={notes} setNotes={setNotes}/>
+      </div>
         </Drawer>
         <Drawer
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, position: 'unset' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, position: 'unset',  maxHeight: 490 },
             '& .MuiDrawer-root': { position: 'unset'},
           }}
           open
         >
           {drawer}
         </Drawer>
+        <div>
+        <MAddbutton notes={notes} setNotes={setNotes}/>
+      </div>
       </Box>
-      <MAddbutton notes={notes} setNotes={setNotes}/>
     </div>
   );
 }

@@ -24,7 +24,7 @@ function Home(props) {
         component="img"
         alt="The house from the offer."
         sx={{
-          width: '100%',
+          width: '60%',
           height: '100%',
           margin: '0 auto',
           display: 'block',
@@ -45,9 +45,9 @@ function Home(props) {
         }}
         >
       <Button href='/login'>
-        <Card variant="outlined" sx={{ minWidth: 275, minHeight:275 }}>
+        <Card variant="outlined" sx={{ minWidth: 225, minHeight:225 }}>
               <CardContent 
-                style={{textAlign:"center", marginTop: "90px"}}>
+                style={{textAlign:"center", marginTop: "80px"}}>
                   <Typography variant="h5" component="h2">
                     NOTES
                   </Typography>
@@ -56,9 +56,9 @@ function Home(props) {
         </Button>
 
         <Button onClick={() => {handleComingsoon()}}>
-          <Card variant="outlined" sx={{ minWidth: 275, minHeight:275 }}>
+          <Card variant="outlined" sx={{ minWidth: 225, minHeight:225 }}>
           <CardContent 
-          style={{textAlign:"center",marginTop: "90px"}}>
+          style={{textAlign:"center",marginTop: "80px"}}>
             <Typography variant="h5" component="h2">
               TODOS
             </Typography>

@@ -77,11 +77,11 @@ function Login(props) {
         display={"flex"}
         flexDirection={"column"}
         onSubmit={handleLogin}
-        maxWidth= {330}
+        maxWidth= {290}
         margin={'auto'}
         bgcolor = {"white"}
-        padding={6}
-        marginTop={30}
+        padding={5}
+        marginTop={15}
         borderRadius={10}
         sx={{
           '& > :not(style)': { m: 1 },
@@ -91,13 +91,18 @@ function Login(props) {
         <FormControl
         margin={'normal'}
         >
-        <InputLabel htmlFor="component-outlined">Email</InputLabel>
+        <InputLabel 
+        sx={{}}
+        htmlFor="component-outlined">Email</InputLabel>
           <OutlinedInput
             type={'email'} 
             // labelText={"Email" }
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             name={'email'}
+            sx={{
+             height: 50,
+            }}
             />
           </FormControl>
 
@@ -108,7 +113,9 @@ function Login(props) {
              <OutlinedInput
             type={'password'} 
             
-            // labelText={"Password" }
+            sx={{
+              height: 50,
+             }}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             name={'password'}

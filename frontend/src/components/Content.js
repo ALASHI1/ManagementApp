@@ -9,13 +9,18 @@ function Content(props) {
   let note = props.note
   let setNote = props.setNote
   useEffect(() => {
+    // handleNull()
     getNote()
+    
+    // console.log(noteid)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [noteid])
 
-
   let getNote = async() => {
-    if (noteid === null) {return}
+    if (noteid === null) {
+     return setNote({...note,'body':''})
+    }
+    
       await axios.get(`/api/note/${noteid}`)
       .then(res => {
           setNote(res.data)
@@ -28,6 +33,15 @@ function Content(props) {
         // setNote({body:'Click on the + button to create a new note'})
       })
   }
+
+  // let handleNull = () => {
+  //   if (noteid === null) {
+  //     setNote({...note,'body':''})
+  //   }
+  //   else{
+  //     getNote()
+  //   }
+  // }
 
 
   return (
