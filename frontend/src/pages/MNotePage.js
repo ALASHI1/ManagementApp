@@ -28,7 +28,7 @@ function MNotePage(props) {
         if (localStorage.getItem('access_token')) {
           handleRefresh()
         }
-      }, 27000)
+      }, 21100)
 
       const delayDebounceFn =  setTimeout(async() => {
         console.log(note)
@@ -44,6 +44,9 @@ function MNotePage(props) {
           // setNote({body:'Click on the + button to create a new note'})
           console.log(err)
           if (err.response.status === 401 || err.code === 'ERR_BAD_RESPONSE') {
+            checkToken()
+          }else{
+            console.log(err)
             handleRefresh()
           }
       }) 
@@ -57,17 +60,17 @@ function MNotePage(props) {
 
 
   let handleRefresh = () => {
-    axios.post('/api/auth/token/refresh/', {refresh_token: localStorage.getItem('refresh_token')})
+    // delete axios.defaults.headers.common["Authorization"];
+    axios.post('/api/auth/token/refresh/', {refresh: localStorage.getItem('refresh_token')})
     .then(res => {
       console.log(res)
-      if (res.data.error) {
-        navigate('/login')
-        console.log(res)
-      } else {
         localStorage.setItem('access_token', res.data.access)
         props.setLogin(true)
         navigate('/mynotes')
-      }
+      }).catch
+      (err => {
+        console.log(err)
+        // navigate('/login')
     }
     )
   }
@@ -85,6 +88,23 @@ function MNotePage(props) {
       }
     })
     }
+
+    let checkToken = () => {
+      delete axios.defaults.headers.common["Authorization"];
+      axios.post('/api/auth/token/verify/', {access: localStorage.getItem('access_token')})
+      .then(res => {
+        if (res.data.code === 'token_not_valid') {
+          navigate('/login')
+        }})
+      .catch(err => {
+        console.log(err)
+        navigate('/login')
+      })
+      console.log('checkToken')
+      }
+
+
+
 
   return (
     <div className='main'>

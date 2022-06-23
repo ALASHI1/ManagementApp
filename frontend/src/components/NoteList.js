@@ -28,7 +28,7 @@ function NoteList(props) {
 
     const mappedNoteList = notes.map((note, index) => {
       return(
-        <div key={index}>
+        <div className='notehov' key={index}>
         <Divider variant="fullWidth" component="li" />
         <ListItem onClick={() => {setNoteID(note)}}>
           <ListItemText primary={getTitle(note)} secondary={getDate(note)}/>

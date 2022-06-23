@@ -125,6 +125,15 @@ body {
   max-height: 535px;
 }
 
+.notehov{
+cursor: pointer;
+}
+
+.nothov:hover{
+  background-color: #010101;
+  color: white;
+}
+
 .content {
 display: flex;
 flex-direction: column;
@@ -155,5 +164,10 @@ border: none;
   margin-bottom: 10px;
   margin-top: 40px;
   margin-left: 150px;
+  cursor: pointer;
+}
+.add-button:hover{
+  background-color: #74ACE8;
+  color: white;
 }
 

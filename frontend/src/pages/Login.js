@@ -24,6 +24,7 @@ function Login(props) {
 
   let handleLogin = (e) => {
     e.preventDefault()
+    delete axios.defaults.headers.common["Authorization"];
     axios.post('/api/auth/login/', {email, password})
     .then(res => {
       console.log(res)
@@ -33,31 +34,32 @@ function Login(props) {
         props.setLogin(true)
         props.setUser(res.data.user.username)
         console.log(document.cookie)
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
         navigate('/mynotes')
     }).catch
     (err => { 
       console.log(err) 
       setError('Invalid Email or Password')
-    })}
+    })
+  }
 
 
   let handleRefresh = () => {
-    axios.post('/api/auth/token/refresh/', {refresh_token: localStorage.getItem('refresh_token')})
+    console.log(localStorage.getItem('refresh_token'))
+    axios.post('/api/auth/token/refresh/', {refresh: localStorage.getItem('refresh_token')})
     .then(res => {
       console.log(res)
-      if (res.data.error) {
-        setError(res.data.error)
-        console.log(error)
-        handleLogout()
-      } else {
         localStorage.setItem('access_token', res.data.access)
         props.setLogin(true)
         console.log(document.cookie)
         navigate('/mynotes')
-      }
+      }).catch
+      (err => { 
+        console.log(err) 
+        setError('Invalid Email or Password')
+        handleLogout()
+      })
     }
-    )
-  }
 
   let handleLogout = () => {
     localStorage.removeItem('access_token')
