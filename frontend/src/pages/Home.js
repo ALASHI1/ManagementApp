@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { Box, Card, CardContent, Toolbar, Button, Typography} from '@mui/material';
 import Task from '../assets/Task.svg'
-
+import Background from '../components/Background';
 
 
 function Home(props) {
@@ -68,6 +68,7 @@ function Home(props) {
         </Box>
         
         {/* </Link> */}
+        <Background/>
     </div>
   )
 }

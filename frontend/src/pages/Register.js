@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from "react-router-dom";
 import { Box, OutlinedInput, InputLabel, FormControl, Button, Typography, FormHelperText} from '@mui/material';
-
+import Background from '../components/Background';
 
 
 
@@ -128,6 +128,7 @@ function Register() {
               Already have an account? <Link to="/login">Login</Link>
               </Typography>
         </Box>
+        <Background/>
     </div>
   )
 }

@@ -5,7 +5,6 @@ import MNotePage from './pages/MNotePage';
 import Home from './pages/Home';
 import MHeader from './components/MHeader';
 import React, {useState, useEffect} from 'react'
-import Background from './components/Background';
 import Register from './pages/Register';
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
             <Route path="/register" element={<Register setLogin={setLogin} setUser={setUser}/>} />
           </Routes>
       </Router>
-      <Background/>
     </div>
   );
 }
