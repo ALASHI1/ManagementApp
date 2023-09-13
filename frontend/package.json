@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://management-tasks.herokuapp.com",
+  "proxy": "https://managementapp-8gcej.ondigitalocean.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
